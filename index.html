@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إلياس اللمطي - Manadger Tech | القوة التقنية</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Orbitron:wght@600;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* الألوان والخطوط الجديدة (Dark Mode & Neumorphism) */
+        :root {
+            --manadger-bg: #1c1c1e;        /* خلفية داكنة رئيسية */
+            --manadger-surface: #2c2c2e;   /* سطح العناصر النيومورفيك */
+            --manadger-light-shadow: #3f3f41; /* الظل الفاتح (لإبراز النتوء) */
+            --manadger-dark-shadow: #141416;  /* الظل الداكن (للعمق) */
+            --manadger-accent: #00ff99;    /* لون التمييز - أخضر نيون تقني */
+            --manadger-text-light: #f0f0f0;/* لون النص الفاتح */
+            --manadger-text-muted: #a0a0a0;/* لون النص الثانوي */
+            
+            --font-heading: 'Orbitron', sans-serif; /* خط تقني قوي */
+            --font-body: 'Cairo', sans-serif;
+        }
+
+        /* إعادة الضبط الأساسي */
+        body {
+            font-family: var(--font-body);
+            background-color: var(--manadger-bg);
+            color: var(--manadger-text-light);
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: var(--manadger-surface);
+            border-radius: 25px;
+            box-shadow: 10px 10px 30px var(--manadger-dark-shadow), -10px -10px 30px var(--manadger-light-shadow);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* شريط علوي بتأثير الوهج (Glow Effect) */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--manadger-accent);
+            filter: blur(2px);
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+        }
+
+        /* قسم البطاقة التعريفية (الرأس) */
+        .header {
+            text-align: center;
+            padding-bottom: 25px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .header::after { 
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background-color: var(--manadger-accent);
+            filter: blur(1px);
+        }
+        
+        /* تنسيق الشعار ليحل محل الصورة الشخصية */
+        .logo-manadger-main {
+            width: 150px; /* حجم الشعار الرئيسي */
+            height: 150px; /* للحفاظ على الشكل الدائري أو المربع حسب الشعار */
+            object-fit: contain; /* للتأكد من أن الشعار لا يتشوه */
+            margin-bottom: 15px;
+            border: 5px solid var(--manadger-accent); /* إطار بلون نيون */
+            border-radius: 50%; /* لجعل الإطار دائرياً حول الشعار */
+            padding: 10px; /* مساحة داخل الإطار */
+            background-color: var(--manadger-bg); /* خلفية داكنة داخل الإطار */
+            box-shadow: 0 0 20px rgba(0, 255, 153, 0.6); /* وهج قوي للشعار */
+            animation: fadeIn 1s ease-out;
+        }
+        /* إخفاء الصورة الشخصية لم تعد موجودة */
+        .profile-pic { display: none; } 
+
+        .name {
+            font-family: var(--font-heading);
+            font-size: 2.5em;
+            font-weight: 900;
+            color: var(--manadger-text-light);
+            text-shadow: 0 0 5px var(--manadger-accent);
+        }
+
+        .title {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: var(--manadger-accent);
+            text-transform: uppercase;
+            margin: 0 0 15px;
+        }
+
+        .slogan {
+            font-size: 1.1em;
+            color: var(--manadger-text-muted);
+            font-family: var(--font-body);
+        }
+        .slogan strong {
+             color: var(--manadger-accent);
+        }
+
+        /* قسم الروابط (الأزرار - Neumorphic Buttons) */
+        .links-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 20px;
+            background-color: var(--manadger-surface);
+            color: var(--manadger-text-light);
+            text-decoration: none;
+            border-radius: 15px;
+            font-weight: 700;
+            transition: all 0.2s ease;
+            box-shadow: 7px 7px 15px var(--manadger-dark-shadow), -7px -7px 15px var(--manadger-light-shadow);
+            font-size: 1.05em;
+        }
+
+        .link-btn i {
+            margin-left: 10px;
+            color: var(--manadger-accent);
+            font-size: 1.3em;
+        }
+
+        .link-btn:active {
+            box-shadow: inset 5px 5px 10px var(--manadger-dark-shadow), inset -5px -5px 10px var(--manadger-light-shadow);
+            color: var(--manadger-accent);
+            transform: scale(0.98);
+        }
+        
+        .link-btn.contact-btn {
+            background-color: var(--manadger-accent);
+            color: var(--manadger-dark);
+            box-shadow: 0 0 20px rgba(0, 255, 153, 0.5);
+        }
+        .link-btn.contact-btn i {
+             color: var(--manadger-dark);
+        }
+        .link-btn.contact-btn:active {
+            box-shadow: inset 5px 5px 10px var(--manadger-dark-shadow), inset -5px -5px 10px var(--manadger-light-shadow);
+        }
+
+
+        /* قسم الخدمات والفلسبفة (لم تتغير التنسيقات هنا لضمان الثبات) */
+        .section-heading {
+            font-family: var(--font-heading);
+            font-size: 1.8em;
+            font-weight: 800;
+            color: var(--manadger-accent);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100px;
+            height: 3px;
+            background-color: var(--manadger-accent);
+            filter: blur(1px);
+        }
+
+        .service-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            background-color: var(--manadger-bg);
+            padding: 18px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            box-shadow: inset 3px 3px 6px var(--manadger-dark-shadow), inset -3px -3px 6px var(--manadger-light-shadow);
+        }
+        .service-item:hover {
+            background-color: #242426;
+        }
+
+        .service-icon {
+            font-size: 2em;
+            color: var(--manadger-accent);
+            margin-left: 15px;
+            min-width: 35px;
+            text-shadow: 0 0 8px rgba(0, 255, 153, 0.4);
+        }
+
+        .service-text strong {
+            display: block;
+            font-weight: 700;
+            font-size: 1.15em;
+            color: var(--manadger-accent);
+            margin-bottom: 3px;
+        }
+
+        .service-text span {
+            font-size: 0.95em;
+            color: var(--manadger-text-light);
+        }
+
+        .philosophy-section blockquote {
+            border-right: 4px solid var(--manadger-accent);
+            padding-right: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            background-color: var(--manadger-surface);
+            padding: 20px;
+            border-radius: 15px;
+            color: var(--manadger-text-light);
+            font-size: 1.1em;
+            line-height: 1.8;
+            box-shadow: 5px 5px 10px var(--manadger-dark-shadow);
+        }
+        blockquote strong {
+            color: var(--manadger-accent);
+        }
+        
+        /* تأثيرات الظهور */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .header, .links-section, .services-section, .philosophy-section {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        .links-section { animation-delay: 0.2s; }
+        .services-section { animation-delay: 0.4s; }
+        .philosophy-section { animation-delay: 0.6s; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container { margin: 20px; padding: 20px; border-radius: 20px; }
+            .logo-manadger-main { width: 120px; height: 120px; padding: 8px; }
+            .name { font-size: 2em; }
+            .title { font-size: 1.1em; }
+            .links-section { grid-template-columns: 1fr; }
+            .link-btn { padding: 16px 15px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="header">
+            <img src="https://i.ibb.co/35H1VG93/2.png" alt="شعار Manadger Tech" class="logo-manadger-main">
+            
+            <h1 class="name">إلياس اللمطي</h1>
+            <h2 class="title">المدير المسؤول لشركة Manadger Tech</h2>
+            
+            <p class="slogan">"أقود التحول الرقمي للعلامات التجارية عبر حلول برمجية ذكية واستراتيجيات تسويق عميقة.<br> **العمق أولاً.**"</p>
+        </div>
+
+        <div class="links-section">
+            <a href="https://www.manadger.com" target="_blank" class="link-btn"><i class="fas fa-globe"></i> موقع Manadger Tech</a>
+            <a href="https://web.facebook.com/?locale=ar_AR" target="_blank" class="link-btn"><i class="fab fa-facebook-f"></i> فيسبوك</a>
+            <a href="https://www.instagram.com/ilyasslamti/" target="_blank" class="link-btn"><i class="fab fa-instagram"></i> انستجرام</a>
+            <a href="https://x.com/ilyasslamti" target="_blank" class="link-btn"><i class="fab fa-twitter"></i> X (تويتر سابقاً)</a>
+            <a href="https://github.com/Ilyasslamti" target="_blank" class="link-btn"><i class="fab fa-github"></i> مشاريع GitHub</a>
+            <a href="mailto:contact@manadger.com" class="link-btn contact-btn"><i class="fas fa-envelope"></i> تواصل مباشر (بريد إلكتروني)</a>
+        </div>
+
+        <div class="services-section">
+            <h2 class="section-heading">💎 خدمات Manadger Tech المتكاملة</h2>
+            
+            <div class="service-item">
+                <span class="service-icon"><i class="fas fa-satellite-dish"></i></span>
+                <div class="service-text">
+                    <strong>الإدارة الذكية والتسويق العميق</strong>
+                    <span>إدارة شاملة، حملات إعلانية عالية الدقة، تحليل استراتيجي متقدم.</span>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <span class="service-icon"><i class="fas fa-cogs"></i></span>
+                <div class="service-text">
+                    <strong>هندسة البرمجيات والحلول المخصصة</strong>
+                    <span>تطوير أنظمة، سكربتات ذكية حصرية، أدوات داخلية، أتمتة العمليات (Automated Processes).</span>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <span class="service-icon"><i class="fas fa-fingerprint"></i></span>
+                <div class="service-text">
+                    <strong>قيادة التواجد الرقمي والـ SEO</strong>
+                    <span>تهيئة المواقع ورفع الترتيب على Google، استراتيجيات إعلامية قوية، بناء البصمة الرقمية.</span>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <span class="service-icon"><i class="fas fa-eye"></i></span>
+                <div class="service-text">
+                    <strong>الهوية البصرية والمحتوى الجريء</strong>
+                    <span>تصميم احترافي، كتابة إبداعية تعتمد على التحليل، إنتاج فيديوهات وصور قوية.</span>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <span class="service-icon"><i class="fas fa-server"></i></span>
+                <div class="service-text">
+                    <strong>الاستضافة وحلول السيرفرات المتقدمة</strong>
+                    <span>إدارة السيرفرات الخاصة، حماية وأمان سيبراني، ضمان أعلى أداء.</span>
+                </div>
+            </div>
+            
+            <div class="service-item">
+                <span class="service-icon"><i class="fas fa-brain"></i></span>
+                <div class="service-text">
+                    <strong>استراتيجيات الذكاء الاصطناعي</strong>
+                    <span>تطبيق روبوتات محادثة، تحليل سلوك الجمهور، وتوصيات تسويقية ذكية.</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="philosophy-section">
+            <h2 class="section-heading">💡 فلسفة العمل: العمق والسيطرة</h2>
+            <blockquote>
+                **"الماندجر لا يلتفت للسطحية.** أسلوبنا يعتمد على **التحليل المسبق، الذكاء، والسيطرة على أدق التفاصيل.** هذا هو مفتاح **البناء العميق والمستدام** الذي نقدمه لشركائنا."
+            </blockquote>
+        </div>
+
+    </div>
+</body>
+</html>
