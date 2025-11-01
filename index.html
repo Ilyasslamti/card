@@ -3,28 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إلياس اللمطي - Manadger Tech | القوة التقنية</title>
+    <title>إلياس اللمطي - Manadger Tech | منظومة القيادة الرقمية المتكاملة</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Orbitron:wght@600;800;900&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
-        /* الألوان والخطوط الجديدة (Dark Mode & Neumorphism) */
+        /* ... (جميع تنسيقات الألوان والخطوط والنيومورفيك تبقى كما هي) ... */
         :root {
-            --manadger-bg: #1c1c1e;        /* خلفية داكنة رئيسية */
-            --manadger-surface: #2c2c2e;   /* سطح العناصر النيومورفيك */
-            --manadger-light-shadow: #3f3f41; /* الظل الفاتح (لإبراز النتوء) */
-            --manadger-dark-shadow: #141416;  /* الظل الداكن (للعمق) */
+            --manadger-bg: #1c1c1e;
+            --manadger-surface: #2c2c2e;
+            --manadger-light-shadow: #3f3f41;
+            --manadger-dark-shadow: #141416;
             --manadger-accent: #00ff99;    /* لون التمييز - أخضر نيون تقني */
-            --manadger-text-light: #f0f0f0;/* لون النص الفاتح */
-            --manadger-text-muted: #a0a0a0;/* لون النص الثانوي */
+            --manadger-text-light: #f0f0f0;
+            --manadger-text-muted: #a0a0a0;
             
-            --font-heading: 'Orbitron', sans-serif; /* خط تقني قوي */
+            --font-heading: 'Orbitron', sans-serif;
             --font-body: 'Cairo', sans-serif;
         }
 
-        /* إعادة الضبط الأساسي */
+        /* ... (تنسيقات الجسم، الحاوية، العنوان ... الخ) ... */
         body {
             font-family: var(--font-body);
             background-color: var(--manadger-bg);
@@ -35,7 +34,6 @@
             text-align: right;
             direction: rtl;
         }
-
         .container {
             max-width: 650px;
             margin: 30px auto;
@@ -46,8 +44,7 @@
             overflow: hidden;
             position: relative;
         }
-
-        /* شريط علوي بتأثير الوهج (Glow Effect) */
+        /* الشريط العلوي */
         .container::before {
             content: '';
             position: absolute;
@@ -60,15 +57,12 @@
             border-top-left-radius: 25px;
             border-top-right-radius: 25px;
         }
-
-        /* قسم البطاقة التعريفية (الرأس) */
         .header {
             text-align: center;
             padding-bottom: 25px;
             margin-bottom: 25px;
             position: relative;
         }
-        
         .header::after { 
             content: '';
             position: absolute;
@@ -80,22 +74,18 @@
             background-color: var(--manadger-accent);
             filter: blur(1px);
         }
-        
-        /* تنسيق الشعار ليحل محل الصورة الشخصية */
         .logo-manadger-main {
-            width: 150px; /* حجم الشعار الرئيسي */
-            height: 150px; /* للحفاظ على الشكل الدائري أو المربع حسب الشعار */
-            object-fit: contain; /* للتأكد من أن الشعار لا يتشوه */
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
             margin-bottom: 15px;
-            border: 5px solid var(--manadger-accent); /* إطار بلون نيون */
-            border-radius: 50%; /* لجعل الإطار دائرياً حول الشعار */
-            padding: 10px; /* مساحة داخل الإطار */
-            background-color: var(--manadger-bg); /* خلفية داكنة داخل الإطار */
-            box-shadow: 0 0 20px rgba(0, 255, 153, 0.6); /* وهج قوي للشعار */
+            border: 5px solid var(--manadger-accent);
+            border-radius: 50%;
+            padding: 10px;
+            background-color: var(--manadger-bg);
+            box-shadow: 0 0 20px rgba(0, 255, 153, 0.6);
             animation: fadeIn 1s ease-out;
         }
-        /* إخفاء الصورة الشخصية لم تعد موجودة */
-        .profile-pic { display: none; } 
 
         .name {
             font-family: var(--font-heading);
@@ -103,6 +93,7 @@
             font-weight: 900;
             color: var(--manadger-text-light);
             text-shadow: 0 0 5px var(--manadger-accent);
+            margin-top: 15px; /* زيادة التباعد بعد الشعار */
         }
 
         .title {
@@ -113,23 +104,42 @@
             margin: 0 0 15px;
         }
 
-        .slogan {
+        /* تنسيق فقرات البيان الجديد */
+        .manifesto p {
             font-size: 1.1em;
-            color: var(--manadger-text-muted);
+            color: var(--manadger-text-light);
             font-family: var(--font-body);
+            line-height: 1.8;
+            margin-bottom: 15px;
         }
-        .slogan strong {
-             color: var(--manadger-accent);
+        .manifesto strong {
+             color: var(--manadger-accent); /* الكلمات القوية بالنيون */
+        }
+        /* فاصل أنيق بين الفقرات */
+        .manifesto hr {
+            border: none;
+            border-top: 1px dashed var(--manadger-accent);
+            opacity: 0.5;
+            margin: 20px auto;
+            width: 80%;
         }
 
-        /* قسم الروابط (الأزرار - Neumorphic Buttons) */
+        .manifesto-tagline {
+            font-size: 1.25em;
+            font-weight: 700;
+            color: var(--manadger-accent);
+            text-shadow: 0 0 5px rgba(0, 255, 153, 0.3);
+            margin-top: 25px;
+        }
+
+        /* ... (تنسيقات الروابط، الخدمات، والفلسفة لم تتغير) ... */
         .links-section {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
             margin-bottom: 40px;
         }
-
+        
         .link-btn {
             display: flex;
             align-items: center;
@@ -162,15 +172,12 @@
             color: var(--manadger-dark);
             box-shadow: 0 0 20px rgba(0, 255, 153, 0.5);
         }
+
         .link-btn.contact-btn i {
              color: var(--manadger-dark);
         }
-        .link-btn.contact-btn:active {
-            box-shadow: inset 5px 5px 10px var(--manadger-dark-shadow), inset -5px -5px 10px var(--manadger-light-shadow);
-        }
 
-
-        /* قسم الخدمات والفلسبفة (لم تتغير التنسيقات هنا لضمان الثبات) */
+        /* ... (تنسيقات الخدمات والفلسفة) ... */
         .section-heading {
             font-family: var(--font-heading);
             font-size: 1.8em;
@@ -180,18 +187,7 @@
             position: relative;
             padding-bottom: 10px;
         }
-
-        .section-heading::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 100px;
-            height: 3px;
-            background-color: var(--manadger-accent);
-            filter: blur(1px);
-        }
-
+        
         .service-item {
             display: flex;
             align-items: flex-start;
@@ -201,30 +197,6 @@
             border-radius: 12px;
             transition: all 0.3s ease;
             box-shadow: inset 3px 3px 6px var(--manadger-dark-shadow), inset -3px -3px 6px var(--manadger-light-shadow);
-        }
-        .service-item:hover {
-            background-color: #242426;
-        }
-
-        .service-icon {
-            font-size: 2em;
-            color: var(--manadger-accent);
-            margin-left: 15px;
-            min-width: 35px;
-            text-shadow: 0 0 8px rgba(0, 255, 153, 0.4);
-        }
-
-        .service-text strong {
-            display: block;
-            font-weight: 700;
-            font-size: 1.15em;
-            color: var(--manadger-accent);
-            margin-bottom: 3px;
-        }
-
-        .service-text span {
-            font-size: 0.95em;
-            color: var(--manadger-text-light);
         }
 
         .philosophy-section blockquote {
@@ -240,11 +212,8 @@
             line-height: 1.8;
             box-shadow: 5px 5px 10px var(--manadger-dark-shadow);
         }
-        blockquote strong {
-            color: var(--manadger-accent);
-        }
         
-        /* تأثيرات الظهور */
+        /* ... (تأثيرات الظهور والتجاوبية) ... */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -257,14 +226,13 @@
         .services-section { animation-delay: 0.4s; }
         .philosophy-section { animation-delay: 0.6s; }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .container { margin: 20px; padding: 20px; border-radius: 20px; }
             .logo-manadger-main { width: 120px; height: 120px; padding: 8px; }
             .name { font-size: 2em; }
             .title { font-size: 1.1em; }
             .links-section { grid-template-columns: 1fr; }
-            .link-btn { padding: 16px 15px; }
+            .manifesto p { font-size: 1em; }
         }
     </style>
 </head>
@@ -277,8 +245,18 @@
             <h1 class="name">إلياس اللمطي</h1>
             <h2 class="title">المدير المسؤول لشركة Manadger Tech</h2>
             
-            <p class="slogan">"أقود التحول الرقمي للعلامات التجارية عبر حلول برمجية ذكية واستراتيجيات تسويق عميقة.<br> **العمق أولاً.**"</p>
-        </div>
+            <div class="manifesto">
+                <p><strong>الماندجر | منظومة القيادة الرقمية المتكاملة</strong></p>
+                <p>نقود التحول الذكي للمؤسسات والعلامات التجارية عبر حلول برمجية متقدمة، واستراتيجيات تسويق قائمة على **التحليل العميق**، والإدارة التشغيلية الدقيقة.</p>
+                
+                <hr>
+
+                <p>نؤمن أن المستقبل لا يُصنع بالأدوات وحدها، بل **بالفكر الذي يُعيد هندستها**.</p>
+                <p>في "الماندجر"، نجمع بين **التقنية، السلوك، والتخطيط الاستراتيجي** لنحوّل الأداء الرقمي إلى نظام وعي تشغيلي مستدام.</p>
+                
+                <p class="manifesto-tagline">الماندجر… حيثُ يتحوّل الذكاء إلى منهج.</p>
+            </div>
+            </div>
 
         <div class="links-section">
             <a href="https://www.manadger.com" target="_blank" class="link-btn"><i class="fas fa-globe"></i> موقع Manadger Tech</a>
